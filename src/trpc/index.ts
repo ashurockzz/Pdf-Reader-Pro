@@ -36,7 +36,7 @@ export const appRouter = router({
     
     return await db.file.findMany({
       where: {
-        userId
+        userId,
       }
     })
   }),
@@ -48,8 +48,10 @@ export const appRouter = router({
         key: input.key,
         userId,
       },
-    })
+    });
+    
     if(!file) throw new TRPCError({ code: 'NOT_FOUND'})
+      return file
   }),
 
   deleteFile: privateProcedure.input(z.object({id: z.string()})).mutation(async ({ctx, input}) => {
@@ -58,8 +60,8 @@ export const appRouter = router({
       where: {
         id: input.id,
         userId,
-      }
-    })
+      },
+    });
     if(!file) throw new TRPCError({ code: 'NOT_FOUND'})
 
     await db.file.delete({
