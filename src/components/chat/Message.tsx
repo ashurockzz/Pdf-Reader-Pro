@@ -4,8 +4,7 @@ import { ExtendedMessage } from '@/types/message'
 import ReactMarkdown from 'react-markdown'
 import { format } from 'date-fns'
 import { forwardRef } from 'react'
-import { Icons } from './../Icons'
- 
+import { Icons } from '../icons'
 
 interface MessageProps {
   message: ExtendedMessage
@@ -26,7 +25,7 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
             {
               'order-2 border border-blue-500  rounded-full':
                 message.isUserMessage,
-              'order-1 border border-green-500  rounded-full':
+              'order-1 border border-purple-500  rounded-full':
                 !message.isUserMessage,
               invisible: isNextMessageSamePerson,
             }
@@ -34,7 +33,7 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
           {message.isUserMessage ? (
             <Icons.user className='fill-blue-400 text-blue-400 h-3/4 w-3/4' />
           ) : (
-            <Icons.logo className='fill-green-500 h-3/4 w-3/4' />
+            <Icons.logo className='fill-purple-500 h-3/4 w-3/4' />
           )}
         </div>
 
@@ -50,7 +49,7 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
             className={cn(
               'px-4 py-2 rounded-3xl inline-block',
               {
-                'bg-blue-600 text-white':
+                'bg-purple-500 text-white':
                   message.isUserMessage,
                 'bg-gray-200 text-gray-900':
                   !message.isUserMessage,

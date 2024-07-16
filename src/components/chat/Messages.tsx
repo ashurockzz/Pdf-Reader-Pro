@@ -1,5 +1,5 @@
 import { trpc } from '@/app/_trpc/client'
-import { INFINITE_QUERY_LIMIT } from './../../config/infinite-memory'
+import { INFINITE_QUERY_LIMIT } from '@/config/infinite-query'
 import { Loader2, MessageSquare } from 'lucide-react'
 import Skeleton from 'react-loading-skeleton'
 import Message from './Message'
@@ -100,7 +100,7 @@ const Messages = ({ fileId }: MessagesProps) => {
         </div>
       ) : (
         <div className='flex-1 flex flex-col items-center justify-center gap-2'>
-          <MessageSquare className='h-8 w-8 text-green-500' />
+          <MessageSquare className='h-8 w-8 text-purple-500' />
           <h3 className='font-semibold text-xl'>
             You&apos;re all set!
           </h3>
