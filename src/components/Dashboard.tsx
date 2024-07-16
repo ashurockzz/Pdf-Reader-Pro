@@ -8,8 +8,14 @@ import Link from "next/link";
 import { format } from "date-fns";
 import { Button } from "./ui/button";
 import { useState } from "react";
+import { getUserSubscriptionPlan } from "@/lib/stripe";
 
-const Dashboard = () => {
+
+interface PageProps {
+  subscriptionPlane: Awaited<ReturnType<typeof getUserSubscriptionPlan>>;
+}
+
+const Dashboard = ({ subscriptionPlane }: PageProps) => {
   const [currentlyDeletingFile, setCurrentlyDeletngFile] = useState<string | null>(
     null
   )
